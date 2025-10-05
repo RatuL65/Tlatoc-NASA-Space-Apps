@@ -59,4 +59,4 @@ This project is a standard Python Flask web application.
 ## 🛰️ Data Source
 
 This project exclusively uses data from the **NASA POWER Project**, accessed via their official API. The POWER (Prediction of Worldwide Energy Resources) project provides global meteorological and solar energy data from NASA research, making it a reliable and authoritative source for this climate analysis tool.
-```eof
+
