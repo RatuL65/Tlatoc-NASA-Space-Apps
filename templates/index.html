@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Climate Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.11.0/dist/geosearch.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div id="starfield"></div>
+    <div class="container">
+        <header class="main-header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" alt="NASA Logo" class="nasa-logo">
+            <h1>Climate Assistant</h1>
+        </header>
+
+        <!-- WIZARD STEPS -->
+        <div id="wizard-container">
+            <!-- Step 1: Activity -->
+            <div class="wizard-step active" id="step-1-activity">
+                <h2><span class="step-number">1</span>What's your plan?</h2>
+                <div class="activity-grid">
+                    <button class="activity-btn" data-activity="hiking"><i class="fas fa-hiking"></i> Hiking</button>
+                    <button class="activity-btn" data-activity="picnic"><i class="fas fa-bread-slice"></i> Picnic</button>
+                    <button class="activity-btn" data-activity="fishing"><i class="fas fa-fish"></i> Fishing</button>
+                    <button class="activity-btn" data-activity="beach"><i class="fas fa-umbrella-beach"></i> Beach Day</button>
+                    <button class="activity-btn" data-activity="stargazing"><i class="fas fa-star"></i> Stargazing</button>
+                    <button class="activity-btn" data-activity="skiing"><i class="fas fa-skiing"></i> Skiing</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Date -->
+            <div class="wizard-step" id="step-2-date">
+                <h2><span class="step-number">2</span>When do you want to go?</h2>
+                <div id="controls">
+                    <button id="date-back-btn" class="wizard-back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+                    <select id="month-select">
+                        <option value="1">Jan</option><option value="2">Feb</option><option value="3">Mar</option>
+                        <option value="4">Apr</option><option value="5">May</option><option value="6">Jun</option>
+                        <option value="7" selected>Jul</option><option value="8">Aug</option><option value="9">Sep</option>
+                        <option value="10">Oct</option><option value="11">Nov</option><option value="12">Dec</option>
+                    </select>
+                    <input type="number" id="day-input" min="1" max="31" value="22">
+                    <button id="date-next-btn" class="wizard-next-btn">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Step 3: Location & Results -->
+            <div class="wizard-step" id="step-3-location">
+                <div class="step-header">
+                    <h2><span class="step-number">3</span>Where do you want to go?</h2>
+                    <button id="location-back-btn" class="wizard-back-btn"><i class="fas fa-arrow-left"></i> Change Date</button>
+                </div>
+                <p class="subtitle">Search for a location or click on the map to get your climate analysis.</p>
+                <div id="content">
+                    <div id="map"></div>
+                    <div id="dashboard">
+                        <!-- Results will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-geosearch@3.11.0/dist/geosearch.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
